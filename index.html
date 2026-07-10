@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Landing</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Header() {
+      return (
+        <header className="site-header">
+          <div className="container">
+            <h1 className="brand">Codify</h1>
+            <nav>
+              <a href="#features">Features</a>
+              <a href="#">Docs</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
+        </header>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section className="hero">
+          <div className="container">
+            <h2>Build faster with clean components</h2>
+            <p>A minimal, responsive React landing page example.</p>
+            <div className="cta">
+              <button className="btn primary">Get Started</button>
+              <button className="btn">Learn More</button>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function FeatureCard({title, children}) {
+      return (
+        <article className="card">
+          <h3>{title}</h3>
+          <p>{children}</p>
+        </article>
+      );
+    }
+
+    function Features() {
+      return (
+        <section id="features" className="features container">
+          <FeatureCard title="Fast Setup">Create pages quickly with reusable components.</FeatureCard>
+          <FeatureCard title="Responsive">Mobile-first styles and flexible layout.</FeatureCard>
+          <FeatureCard title="Accessible">Semantic HTML and sensible defaults.</FeatureCard>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="site-footer">
+          <div className="container">
+            <p>© {new Date().getFullYear()} Codify — Simple landing demo.</p>
+            <div className="social">
+              <a href="#">Twitter</a>
+              <a href="#">GitHub</a>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Header />
+          <main>
+            <Hero />
+            <Features />
+          </main>
+          <Footer />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
