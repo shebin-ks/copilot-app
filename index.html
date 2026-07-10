@@ -16,13 +16,14 @@
   <script type="text/babel">
     const { useState } = React;
 
-    function Header() {
+    function Header({ currentPage, setCurrentPage }) {
       return (
         <header className="site-header">
           <div className="container">
             <h1 className="brand">Codify</h1>
             <nav>
-              <a href="#features">Features</a>
+              <button className={`nav-link ${currentPage === 'home' ? 'active' : ''}`} onClick={() => setCurrentPage('home')}>Home</button>
+              <button className={`nav-link ${currentPage === 'about' ? 'active' : ''}`} onClick={() => setCurrentPage('about')}>About</button>
               <a href="#">Docs</a>
               <a href="#">Contact</a>
             </nav>
@@ -65,6 +66,26 @@
       );
     }
 
+    function About() {
+      return (
+        <section className="about-page">
+          <div className="container">
+            <h2>About Codify</h2>
+            <p>Codify is a simple, clean landing page template built with React. It demonstrates best practices for responsive design, reusable components, and minimal dependencies.</p>
+            <h3>Our Mission</h3>
+            <p>To provide developers with a lightweight, accessible starting point for building modern web applications.</p>
+            <h3>Built With</h3>
+            <ul>
+              <li>React 18 (via CDN)</li>
+              <li>Plain CSS with mobile-first approach</li>
+              <li>No build tools required</li>
+              <li>Semantic HTML</li>
+            </ul>
+          </div>
+        </section>
+      );
+    }
+
     function Footer() {
       return (
         <footer className="site-footer">
@@ -80,12 +101,20 @@
     }
 
     function App() {
+      const [currentPage, setCurrentPage] = useState('home');
+
       return (
         <div>
-          <Header />
+          <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
           <main>
-            <Hero />
-            <Features />
+            {currentPage === 'home' ? (
+              <>
+                <Hero />
+                <Features />
+              </>
+            ) : (
+              <About />
+            )}
           </main>
           <Footer />
         </div>
