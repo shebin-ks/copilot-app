@@ -89,12 +89,38 @@
     function Footer() {
       return (
         <footer className="site-footer">
-          <div className="container">
-            <p>© {new Date().getFullYear()} Codify — Simple landing demo.</p>
-            <div className="social">
-              <a href="#">Twitter</a>
-              <a href="#">GitHub</a>
+          <div className="container footer-grid">
+            <div>
+              <h3 className="brand footer-brand">Codify</h3>
+              <p>Thoughtful starting points for modern product teams.</p>
             </div>
+            <div>
+              <h4>Explore</h4>
+              <ul className="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Docs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Contact</h4>
+              <ul className="footer-links">
+                <li><a href="mailto:hello@codify.dev">hello@codify.dev</a></li>
+                <li><a href="#">+1 (555) 010-2048</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Follow</h4>
+              <div className="social">
+                <a href="#">X</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+          <div className="container footer-bottom">
+            <p>© {new Date().getFullYear()} Codify. Built for speed and clarity.</p>
+            <a href="#" className="back-to-top">Back to top ↑</a>
           </div>
         </footer>
       );
