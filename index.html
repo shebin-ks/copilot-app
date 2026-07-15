@@ -24,6 +24,7 @@
             <nav>
               <button className={`nav-link ${currentPage === 'home' ? 'active' : ''}`} onClick={() => setCurrentPage('home')}>Home</button>
               <button className={`nav-link ${currentPage === 'about' ? 'active' : ''}`} onClick={() => setCurrentPage('about')}>About</button>
+              <button className={`nav-link ${currentPage === 'services' ? 'active' : ''}`} onClick={() => setCurrentPage('services')}>Services</button>
               <button className={`nav-link ${currentPage === 'docs' ? 'active' : ''}`} onClick={() => setCurrentPage('docs')}>Docs</button>
               <button className={`nav-link ${currentPage === 'contact' ? 'active' : ''}`} onClick={() => setCurrentPage('contact')}>Contact</button>
             </nav>
@@ -122,6 +123,22 @@
       );
     }
 
+    function Services() {
+      return (
+        <section className="about-page">
+          <div className="container">
+            <h2>Services</h2>
+            <p>Discover the services offered by Codify to help your team ship polished web experiences faster.</p>
+            <div className="features">
+              <FeatureCard title="Design Systems">Create consistent UI with reusable patterns and tokens.</FeatureCard>
+              <FeatureCard title="Performance">Optimize page speed with lightweight, accessible components.</FeatureCard>
+              <FeatureCard title="Consulting">Get expert guidance on modern front-end workflows.</FeatureCard>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
     function Footer() {
       return (
         <footer className="site-footer">
@@ -176,6 +193,8 @@
               </>
             ) : currentPage === 'about' ? (
               <About />
+            ) : currentPage === 'services' ? (
+              <Services />
             ) : currentPage === 'docs' ? (
               <Docs />
             ) : (
