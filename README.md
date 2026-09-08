@@ -1,15 +1,28 @@
-# copilot-app
+# Codify
 
-Simple React landing page demo
+Codify is a lightweight, responsive landing page demo built with React 18. It uses React components and client-side state for navigation while keeping the project deliberately small: there is no bundler, package manager, or build step.
 
-Open `index.html` in a browser or serve the folder with a static server:
+## Pages
+
+- **Home** - hero section and feature highlights
+- **About** - project mission and technology overview
+- **Services** - design systems, performance, and consulting offerings
+- **Docs** - quick-start information
+- **Contact** - contact details and collaboration prompt
+
+## Run locally
+
+Open `index.html` directly in a browser, or serve the folder with a static server:
 
 ```bash
-# Python 3
 python3 -m http.server 8000
-# then open http://localhost:8000
 ```
 
-Files:
-- `index.html` — single-page app using React via CDN
-- `styles.css` — basic responsive styles
+Then open <http://localhost:8000>.
+
+## Project structure
+
+- `index.html` - application markup, React components, and page state
+- `styles.css` - responsive layout, colors, typography, and component styles
+
+React, ReactDOM, and Babel are loaded from the unpkg CDN at runtime. An internet connection is required when loading the page unless those dependencies are vendored locally.
